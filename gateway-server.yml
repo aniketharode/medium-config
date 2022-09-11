@@ -1,0 +1,32 @@
+server:
+  port: 8072
+ 
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+      
+      
+spring:
+  cloud:
+    loadbalancer.ribbon.enabled: false
+    gateway:
+        routes:
+        - id: mediumcategory
+          uri: lb://mediumcategory
+          predicates:
+          - Path=/category/**
+          filters:
+          - RewritePath=/category/(?<path>.*), /$\{path}
+
+
+       
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"      
