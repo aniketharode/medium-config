@@ -21,8 +21,8 @@ spring:
           uri: lb://mediumcategory
           predicates:
           - Path=/category/**
-          filters:
-          - RewritePath=/category/(?<path>.*), /$\{path}
+        #  filters:
+         # - RewritePath=/category/(?<path>.*), /$\{path}
 
 
        
