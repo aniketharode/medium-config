@@ -1,6 +1,10 @@
 server:
   port: 8072
  
+ spring:
+    application:
+     name: gateway-server  
+ 
 eureka:
   instance:
     preferIpAddress: true
